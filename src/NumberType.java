@@ -1,3 +1,3 @@
 public enum NumberType {
-    ARABIC, ROME
+    ARABIC, ROMAN
 }

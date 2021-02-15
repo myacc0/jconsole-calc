@@ -1,5 +1,5 @@
 public interface Converter {
-    String arabicToRome(String value);
+    String arabicToRoman(int value);
 
-    String romeToArabic(String value);
+    int romanToArabic(String value);
 }
