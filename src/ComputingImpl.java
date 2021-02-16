@@ -1,10 +1,12 @@
-public class Calculating implements Calc {
-    public int calculating(String operator, int operandA, int operandB) {
+public class ComputingImpl implements Computing {
+
+    @Override
+    public int doCalculation(String operator, int a, int b) {
         int res = switch (operator) {
-            case "+" -> add(operandA, operandB);
-            case "-" -> sub(operandA, operandB);
-            case "*" -> mul(operandA, operandB);
-            case "/" -> div(operandA, operandB);
+            case "+" -> add(a, b);
+            case "-" -> sub(a, b);
+            case "*" -> mul(a, b);
+            case "/" -> div(a, b);
             default -> 0;
         };
 

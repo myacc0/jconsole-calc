@@ -1,4 +1,6 @@
-public interface Calc {
+public interface Computing {
+    public int doCalculation(String operator, int a, int b);
+
     public int add(int a, int b);
 
     public int sub(int a, int b);

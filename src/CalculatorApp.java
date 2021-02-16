@@ -11,7 +11,7 @@ public class CalculatorApp {
             calculator.calculate(input);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (IllegalMathExpression e) {
+        } catch (IllegalMathExpression | ValueOutOfBoundException e) {
             System.out.println(e.getMessage());
         }
     }
