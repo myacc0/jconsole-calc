@@ -17,13 +17,19 @@ public class Calculator {
         setInputNumeralSystem( detectNumeralSystem(operandA, operandB) );
 
         // convert
-        int a, b, result = 0;
+        int a = 0;
+        int b = 0;
+        int result = 0;
         if (inputNumeralSystem.equals(NumeralSystem.ROMAN)) {
             a = converter.romanToArabic(operandA);
             b = converter.romanToArabic(operandB);
         } else {
-            a = Integer.parseInt(operandA);
-            b = Integer.parseInt(operandB);
+            try {
+                a = Integer.parseInt(operandA);
+                b = Integer.parseInt(operandB);
+            } catch (NumberFormatException e) {
+                throw new ValueOutOfBoundException();
+            }
         }
 
         // validate operands
@@ -42,7 +48,7 @@ public class Calculator {
     }
 
     public void parseInputString(String input) throws IllegalMathExpression {
-        Pattern p = Pattern.compile("([IVX0-9]{1,4})(\\s*[\\+,\\-,\\*,\\/]\\s*)([IVX0-9]{1,4})", Pattern.CASE_INSENSITIVE);
+        Pattern p = Pattern.compile("([IVX]+|[0-9]+)(\\s*[\\+,\\-,\\*,\\/]\\s*)([IVX]+|[0-9]+)", Pattern.CASE_INSENSITIVE);
         Matcher matcher = p.matcher(input);
         if (matcher.matches()) {
             operandA = matcher.group(1).toUpperCase();

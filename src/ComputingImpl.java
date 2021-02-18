@@ -2,14 +2,17 @@ public class ComputingImpl implements Computing {
 
     @Override
     public int doCalculation(String operator, int a, int b) {
-        int res = switch (operator) {
-            case "+" -> add(a, b);
-            case "-" -> sub(a, b);
-            case "*" -> mul(a, b);
-            case "/" -> div(a, b);
-            default -> 0;
-        };
-
+        int res = 0;
+        switch (operator) {
+            case "+": res = add(a, b);
+                break;
+            case "-": res = sub(a, b);
+                break;
+            case "*": res = mul(a, b);
+                break;
+            case "/": res = div(a, b);
+                break;
+        }
         return res;
     }
 
